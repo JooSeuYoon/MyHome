@@ -37,8 +37,8 @@
         else{
             PrintWriter script = response.getWriter();
             script.println("<script>");
-            script.println("alert('회원가입 성공하였습니다.");
-            script.println("location.href = 'main.jsp'");
+            script.println("alert('회원가입 성공하였습니다.')");
+            script.println("location.href = 'index.jsp'");
             script.println("</script>");
         }
     }
