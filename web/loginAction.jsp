@@ -27,11 +27,27 @@
 
 <body>
     <%
+        String userID = null;
+
+        if(session.getAttribute("userID")!=null){
+            userID = (String)session.getAttribute("userID");
+        }
+
+        if(userID!=null){
+            PrintWriter script = response.getWriter();
+            script.println("<script>");
+            script.println("alert('로그인 상태입니다.')");
+            script.println("location.href='main.jsp'");
+            script.println("</script>");
+        }
+
         UserDAO userDAO = new UserDAO();
         int result = userDAO.login(user.getUserID(),user.getUserPassword());
         if(result==1){
+            session.setAttribute("userID",user.getUserID());
             PrintWriter script = response.getWriter();
             script.println("<script>");
+            script.println("alert('로그인 되었습니다.')");
             script.println("location.href='main.jsp'");
             script.println("</script>");
         }
