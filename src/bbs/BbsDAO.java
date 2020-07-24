@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class BbsDAO {
     private Connection conn;
@@ -68,5 +69,67 @@ public class BbsDAO {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    public ArrayList<bbs> getList(int pageNumber){
+        String SQL = "SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10";
+        ArrayList<bbs> list = new ArrayList<bbs>();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
+            pstmt.setInt(1,getNext()-(pageNumber-1)*10);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                bbs bbs = new bbs();
+                bbs.setBbsID(rs.getInt(1));
+                bbs.setBbsTitle(rs.getString(2));
+                bbs.setUserID(rs.getString(3));
+                bbs.setBbsDate(rs.getString(4));
+                bbs.setBbsContent(rs.getString(5));
+                bbs.setBbsAvailable(rs.getInt(6));
+                list.add(bbs);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public boolean nextPage(int pageNumber){
+        String SQL="SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10";
+        ArrayList<bbs> list = new ArrayList<bbs>();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
+            pstmt.setInt(1,getNext()-(pageNumber-1)*10);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public bbs getbbs(int bbsID){
+        String SQL = "SELECT * FROM BBS WHERE bbsID = ?";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
+            pstmt.setInt(1,bbsID);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                bbs bbs = new bbs();
+                bbs.setBbsID(rs.getInt(1));
+                bbs.setBbsTitle(rs.getString(2));
+                bbs.setUserID(rs.getString(3));
+                bbs.setBbsDate(rs.getString(4));
+                bbs.setBbsContent(rs.getString(5));
+                bbs.setBbsAvailable(rs.getInt(6));
+
+                return bbs;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }
