@@ -135,7 +135,7 @@
                 if(userID!=null&&userID.equals(bbs.getUserID())){
             %>
             <a href="update.jsp?bbsID=<%=bbsID%>" class="btn btn-primary">수정</a>
-            <a href="delete.jsp?bbsID=<%=bbsID%>" class="btn btn-primary">삭제</a>
+            <a onclick="return confirm('삭제하시겠습니까?')" href="delete.jsp?bbsID=<%=bbsID%>" class="btn btn-primary">삭제</a>
             <%
                 }
             %>

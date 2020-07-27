@@ -14,7 +14,8 @@
     <meta name="viewport" content="width=device-width" initial-scale="1">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="css/custom.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -95,6 +96,12 @@
 
 </nav>
 
-
+    <div class="container">
+        <div class="jumbotron">
+            <h1>웹사이트 소개</h1>
+            <p>이 웹 사이트는 부트스트랩으로 만든 JSP 웹 사이트입니다. </p>
+            <a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a>
+        </div>
+    </div>
 </body>
 </html>
