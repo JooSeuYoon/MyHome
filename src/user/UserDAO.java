@@ -13,7 +13,7 @@ public class UserDAO {
 
     public UserDAO(){
         try {
-            String dbURL="jdbc:mysql://localhost:3306/MyHome?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            String dbURL="jdbc:mysql://localhost:3306/MyHome?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&characterEncoding=euckr";
             String dbID = "root";
             String dbPassword = "Zmfntldh12!";
             Class.forName("com.mysql.jdbc.Driver");
