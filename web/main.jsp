@@ -13,13 +13,12 @@
 
     <meta name="viewport" content="width=device-width" initial-scale="1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/custom.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <title>MyHome</title>
 </head>
 <body>
@@ -32,74 +31,68 @@
 
     <nav class="navbar navbar-default">
 
-    <div class="navbar-header">
+        <div class="navbar-header">
 
-        <button type="button" class="navbar-toggle collapsed"
+            <button type="button" class="navbar-toggler"
 
-                data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    data-toggle="collapse" data-target="#navbarSupportedContent"
 
-                aria-expaned="false">
+                    aria-expaned="false" aria-label="Toggle navigation">
 
-            <span class="icon-bar"></span>
+                <span class="navbar-toggler-icon"></span>
 
-            <span class="icon-bar"></span>
+            </button>
 
-            <span class="icon-bar"></span>
+            <a class="navbar-brand" href="main.jsp">JSP 게시판</a>
 
-        </button>
+        </div>
 
-        <a class="navbar-brand" href="main.jsp">JSP 게시판</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    </div>
+            <ul class="nav navbar-nav">
 
-    <div class="collapse navbar-collapse" id="#bs-example-navbar-collapse-1">
-
-        <ul class="nav navbar-nav">
-
-            <li><a href="main.jsp">메인</a></li>
-
-            <li><a href="bbs.jsp">게시판</a></li>
-
-        </ul>
-
+                <li><a href="main.jsp">메인</a></li>
+                <li><a href="bookstory.jsp">책 후기</a></li>
+                <li><a href="bbs.jsp">게시판</a></li>
+            </ul>
         <%
             if(userID==null){
         %>
-        <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
 
-            <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">
 
-                <li><a href="login.jsp">로그인</a></li>
+                    <li><a href="login.jsp">로그인</a></li>
 
-                <li><a href="join.jsp">회원가입</a></li>
+                    <li><a href="join.jsp">회원가입</a></li>
 
-            </ul>
-
-        </ul>
-        <%
-            } else {
-        %>
-        <ul class="nav navbar-nav navbar-right">
-
-            <ul class="nav navbar-nav">
-
-                <li><a href="logoutAction.jsp">로그아웃</a></li>
+                </ul>
 
             </ul>
+            <%
+                } else {
+            %>
+            <ul class="nav navbar-nav navbar-right">
 
-        </ul>
-        <%
-            }
-        %>
+                <ul class="nav navbar-nav">
 
-    </div>
+                    <li><a href="logoutAction.jsp">로그아웃</a></li>
 
-</nav>
+                </ul>
+
+            </ul>
+            <%
+                }
+            %>
+
+
+
+    </nav>
 
     <div class="container">
         <div class="jumbotron">
-            <h1>웹사이트 소개</h1>
-            <p>이 웹 사이트는 부트스트랩으로 만든 JSP 웹 사이트입니다. </p>
+            <h1>책 이야기</h1>
+            <p>책과 관련된 자유로운 이야기를 펼치세요</p>
             <a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a>
         </div>
     </div>
