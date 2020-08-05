@@ -93,10 +93,9 @@
             </ul>
         </div>
     </nav>
-
+    <form method="post" action="updateAction.jsp?bbsID=<%=bbsID%>">
     <div class="container">
         <div class="row">
-            <form method="post" action="updateAction.jsp?bbsID=<%=bbsID%>">
                 <table class="table table-striped" style="text-align: center; border:1px solid #dddddd">
                     <thead>
                         <tr>
@@ -113,8 +112,8 @@
                     </tbody>
                 </table>
                 <button type="submit" class="btn btn-primary pull-right">글 수정</button>
-            </form>
         </div>
     </div>
+    </form>
 </body>
 </html>

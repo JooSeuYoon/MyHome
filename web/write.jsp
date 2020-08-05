@@ -64,9 +64,9 @@
         </div>
     </nav>
 
+    <form method="post" action="writeAction.jsp">
     <div class="container">
         <div class="row">
-            <form method="post" action="writeAction.jsp">
                 <table class="table table-striped" style="text-align: center;border: 1px solid #dddddd">
                     <thead>
                         <tr>
@@ -87,9 +87,9 @@
                     </tbody>
                 </table>
                 <input type="submit" class="btn btn-primary pull-right" value="글쓰기">
-            </form>
+                </div>
         </div>
-    </div>
+    </form>
     <%
         }else{
             PrintWriter script = response.getWriter();
