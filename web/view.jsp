@@ -1,6 +1,9 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="bbs.BbsDAO" %>
 <%@ page import="bbs.bbs" %>
+<%@ page import="reply.reply"%>
+<%@ page import="reply.ReplyDAO"%>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
@@ -116,5 +119,45 @@
             %>
         </div>
     </div>
+
+    <div class="container">
+    <form method="post" action="replywriteAction.jsp">
+        <div class="form-group row">
+            <input type="text" class="form-control" id="replyContent" placeholder="댓글 작성">
+        </div>
+        <button type="submit" class="btn btn-primary">작성</button>
+    </form>
+    </div>
+
+    <%
+        ReplyDAO rDAO = new ReplyDAO();
+        ArrayList<reply> list = rDAO.getList(bbsID);
+
+        if(list.size()!=0){
+    %>
+
+    <div class="container">
+        <div class = "row">
+            <table class="table">
+                <tbody>
+                    <%
+                        for(int i=0;i<list.size();i++){
+                    %>
+                    <tr>
+                        <td><%=list.get(i).getUserID()%></td>
+                        <td><%=list.get(i).getReplyContent()%></td>
+                        <td><a onclick="return confirm('삭제하시겠습니까?')" class="btn btn-primary">삭제</a> </td>
+                    </tr>
+                    <%
+                        }
+                    %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <%
+        }
+    %>
 </body>
 </html>

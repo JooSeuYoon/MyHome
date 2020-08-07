@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ReplyDAO {
     private Connection conn;
@@ -58,7 +57,7 @@ public class ReplyDAO {
     }
 
     public ArrayList<reply> getList(int bbsID){
-        String SQL = "SELECT * FROM reply WHERE bbsID = ? AND replyAvail = 1 ORDER BY replyID ASC DESC";
+        String SQL = "SELECT * FROM reply WHERE bbsID = ? AND replyAvail = 1 ORDER BY replyID DESC";
         ArrayList<reply> list = new ArrayList<reply>();
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
