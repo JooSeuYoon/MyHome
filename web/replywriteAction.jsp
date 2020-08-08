@@ -9,11 +9,12 @@
 
 <jsp:useBean id="reply" class="reply.reply" scope="page" />
 <jsp:setProperty name="reply" property="replyContent" />
-<jsp:setProperty name="reply" property="replyID" />
 <jsp:useBean id="bbs" class="bbs.bbs" scope="page"/>
+<jsp:setProperty name="bbs" property="bbsID"/>
 
 <%
     System.out.println(reply);
+    System.out.println(bbs);
 %>
 <!DOCTYPE html>
 <html>

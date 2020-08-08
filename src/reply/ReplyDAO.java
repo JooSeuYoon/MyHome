@@ -22,11 +22,10 @@ public class ReplyDAO {
         }
     }
 
-    public int getNext(int bbsID){
-        String SQL = "SELECT replyID FROM reply WHERE bbsID = ? BY replyID DESC";
+    public int getNext(){
+        String SQL = "SELECT replyID FROM reply ORDER BY replyID DESC";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
-            pstmt.setInt(1,bbsID);
 
             rs = pstmt.executeQuery();
             if(rs.next()){
@@ -43,7 +42,7 @@ public class ReplyDAO {
         String SQL = "INSERT INTO reply VALUES(?,?,?,?,?)";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
-            pstmt.setInt(1,getNext(bbsID));
+            pstmt.setInt(1,getNext());
             pstmt.setString(2,userID);
             pstmt.setInt(3,bbsID);
             pstmt.setString(4,replyContent);

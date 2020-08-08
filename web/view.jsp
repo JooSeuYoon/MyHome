@@ -120,16 +120,34 @@
         </div>
     </div>
 
+    <%
+        if(userID!=null){
+    %>
+
     <div class="container">
-    <form method="post" action="replywriteAction.jsp">
-        <div class="form-group row">
-            <input type="text" class="form-control" id="replyContent" placeholder="댓글 작성">
+        <div class="row">
+            <table class="table">
+                <tbody>
+                <form method="post" action="replywriteAction.jsp">
+                    <tr>
+                        <td><%=userID%></td>
+                        <td>
+                            <div class="form-group row">
+                                <input type="text" class="form-control" name="replyContent" placeholder="댓글 작성" maxlength="100"/>
+                                <input type="hidden" name="bbsID" value="<%=bbs.getBbsID()%>">
+                            </div>
+                        </td>
+                        <td> <button type="submit" class="btn btn-primary">작성</button></td>
+                    </tr>
+                </form>
+                </tbody>
+            </table>
         </div>
-        <button type="submit" class="btn btn-primary">작성</button>
-    </form>
     </div>
 
     <%
+        }
+
         ReplyDAO rDAO = new ReplyDAO();
         ArrayList<reply> list = rDAO.getList(bbsID);
 
