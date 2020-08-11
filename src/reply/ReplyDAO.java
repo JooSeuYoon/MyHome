@@ -78,18 +78,39 @@ public class ReplyDAO {
         return list;
     }
 
-    public int delete(int bbsID, int replyID){
-        String SQL = "UPDATE REPLY SET replyAvail = 0 WHERE bbsID=? AND replyID=?";
+    public int delete(int replyID){
+        String SQL = "UPDATE REPLY SET replyAvail = 0 WHERE replyID=?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
-            pstmt.setInt(1,bbsID);
-            pstmt.setInt(2,replyID);
+            pstmt.setInt(1,replyID);
 
             return pstmt.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
         }
         return -1;
+    }
+
+    public reply getreply(int replyID){
+        String SQL = "SELECT * FROM REPLY WHERE replyID = ?";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
+            pstmt.setInt(1,replyID);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                reply reply = new reply();
+                reply.setReplyID(rs.getInt(1));
+                reply.setUserID(rs.getString(2));
+                reply.setBbsID(rs.getInt(3));
+                reply.setReplyContent(rs.getString(4));
+                reply.setReplyAvail(rs.getInt(5));
+
+                return reply;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

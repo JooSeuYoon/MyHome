@@ -126,7 +126,7 @@
 
     <div class="container">
         <div class="row">
-            <table class="table">
+            <table class="table">K
                 <tbody>
                 <form method="post" action="replywriteAction.jsp">
                     <tr>
@@ -138,6 +138,7 @@
                             </div>
                         </td>
                         <td> <button type="submit" class="btn btn-primary">작성</button></td>
+                        <td> <a href="javascript:window.location.reload(true)" class="btn btn-secondary">댓로고침</a> </td>
                     </tr>
                 </form>
                 </tbody>
@@ -164,7 +165,7 @@
                     <tr>
                         <td><%=list.get(i).getUserID()%></td>
                         <td><%=list.get(i).getReplyContent()%></td>
-                        <td><a onclick="return confirm('삭제하시겠습니까?')" class="btn btn-primary">삭제</a> </td>
+                        <td><a onclick="return confirm('삭제하시겠습니까?')" href="replydeleteAction.jsp?replyID=<%=list.get(i).getReplyID()%>" class="btn btn-primary">삭제</a> </td>
                     </tr>
                     <%
                         }
