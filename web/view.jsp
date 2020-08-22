@@ -163,9 +163,10 @@
                         for(int i=0;i<list.size();i++){
                     %>
                     <tr>
-                        <td><%=list.get(i).getUserID()%></td>
-                        <td><%=list.get(i).getReplyContent()%></td>
-                        <td><a onclick="return confirm('삭제하시겠습니까?')" href="replydeleteAction.jsp?replyID=<%=list.get(i).getReplyID()%>" class="btn btn-primary">삭제</a> </td>
+                        <td style="width: 15%"><%=list.get(i).getUserID()%></td>
+                        <td style="width: 15%"><%=list.get(i).getReplyDate().substring(2,16)%></td>
+                        <td style="width: 50%"><%=list.get(i).getReplyContent()%></td>
+                        <td style="width: 20%"><a onclick="return confirm('삭제하시겠습니까?')" href="replydeleteAction.jsp?replyID=<%=list.get(i).getReplyID()%>" class="btn btn-primary">삭제</a> </td>
                     </tr>
                     <%
                         }

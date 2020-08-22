@@ -22,6 +22,20 @@ public class ReplyDAO {
         }
     }
 
+    public String getDate(){
+        String SQL = "SELECT NOW()";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                return rs.getString(1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "";
+    }
+
     public int getNext(){
         String SQL = "SELECT replyID FROM reply ORDER BY replyID DESC";
         try {
@@ -39,7 +53,7 @@ public class ReplyDAO {
     }
 
     public int write(String userID,int bbsID, String replyContent){
-        String SQL = "INSERT INTO reply VALUES(?,?,?,?,?)";
+        String SQL = "INSERT INTO reply VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1,getNext());
@@ -47,6 +61,7 @@ public class ReplyDAO {
             pstmt.setInt(3,bbsID);
             pstmt.setString(4,replyContent);
             pstmt.setInt(5,1);
+            pstmt.setString(6,getDate());
 
             return pstmt.executeUpdate();
         }catch (Exception e){
@@ -70,6 +85,7 @@ public class ReplyDAO {
                 re.setBbsID(rs.getInt(3));
                 re.setReplyContent(rs.getString(4));
                 re.setReplyAvail(rs.getInt(5));
+                re.setReplyDate(rs.getString(6));
                 list.add(re);
             }
         }catch (Exception e){

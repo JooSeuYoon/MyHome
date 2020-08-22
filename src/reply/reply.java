@@ -7,6 +7,16 @@ public class reply {
     private String replyContent;
     private int replyAvail;
 
+    private String replyDate;
+
+    public String getReplyDate() {
+        return replyDate;
+    }
+
+    public void setReplyDate(String replyDate) {
+        this.replyDate = replyDate;
+    }
+
     public int getBbsID() {
         return bbsID;
     }
@@ -46,4 +56,6 @@ public class reply {
     public void setReplyAvail(int replyAvail) {
         this.replyAvail = replyAvail;
     }
+
+
 }
