@@ -1,6 +1,8 @@
 <%@ page import="bbs.BbsDAO" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="bbs.bbs" %>
+<%@ page import="reply.reply"%>
+<%@ page import="reply.ReplyDAO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
@@ -79,6 +81,7 @@
                     <tr>
                         <th style="background-color: #eeeeee; text-align: center;">번호</th>
                         <th style="background-color: #eeeeee; text-align: center;">제목</th>
+                        <th style="background-color: #eeeeee; text-align: center">댓글수</th>
                         <th style="background-color: #eeeeee; text-align: center;">작성자</th>
                         <th style="background-color: #eeeeee; text-align: center;">작성일</th>
                     </tr>
@@ -87,11 +90,13 @@
                     <%
                         BbsDAO bbsDAO = new BbsDAO();
                         ArrayList<bbs> list = bbsDAO.getList(pageNumber);
+                        ReplyDAO reDAO = new ReplyDAO();
                         for(int i = 0;i<list.size();i++){
                     %>
                     <tr>
                         <td><%=list.get(i).getBbsID()%></td>
                         <td><a href="view.jsp?bbsID=<%=list.get(i).getBbsID()%>"><%=list.get(i).getBbsTitle()%></a></td>
+                        <td><%=reDAO.getreplycount(list.get(i).getBbsID())%></td>
                         <td><%=list.get(i).getUserID()%></td>
                         <td><%=list.get(i).getBbsDate().substring(0,11) + list.get(i).getBbsDate().substring(11,13)+ "시" +
                         list.get(i).getBbsDate().substring(14,16) + "분"%></td>

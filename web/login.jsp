@@ -51,9 +51,7 @@
 
 <div class="container">
 
-    <div class="col-lg-4"></div>
-
-    <div class="col-lg-4">
+    <div class="col-lg-6">
 
         <!-- 점보트론 -->
 

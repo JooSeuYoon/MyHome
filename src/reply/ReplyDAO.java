@@ -113,6 +113,23 @@ public class ReplyDAO {
         return null;
     }
 
+    public int getreplycount(int bbsID){
+        String SQL = "SELEcT * FROM REPLY WHERE bbsID = ? AND replyAvail = 1";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL);
+            pstmt.setInt(1,bbsID);
+            rs = pstmt.executeQuery();
+            int rcount=0;
+            while(rs.next()){
+                rcount++;
+            }
+
+            return rcount;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
 
 }

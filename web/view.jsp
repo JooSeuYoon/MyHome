@@ -126,7 +126,7 @@
 
     <div class="container">
         <div class="row">
-            <table class="table">K
+            <table class="table">
                 <tbody>
                 <form method="post" action="replywriteAction.jsp">
                     <tr>
