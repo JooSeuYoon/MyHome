@@ -104,23 +104,22 @@
                     }
                 %>
                 </tbody>
-
-                <%
-                    if(pageNumber != 1){
-                %>
-                <a href="bbs.jsp?pageNumber=<%=pageNumber-1%>"
-                   class="btn btn-success btn-arrow-left">이전</a>
-                <%
-                    }
-                    if(bbsDAO.nextPage(pageNumber+1)){
-                %>
-                <a href="bbs.jsp?pageNumber=<%=pageNumber+1%>"
-                   class="btn btn-success btn-arrow-left">다음</a>
-                <%
-                    }
-                %>
             </table>
-            <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+            <a href="write.jsp" class="btn btn-primary mr-auto p-2">글쓰기</a>
+            <%
+                if(pageNumber != 1){
+            %>
+            <a href="bbs.jsp?pageNumber=<%=pageNumber-1%>"
+               class="btn btn-success mr-1 p-2">이전 </a>
+            <%
+                }
+                if(bbsDAO.nextPage(pageNumber+1)){
+            %>
+            <a href="bbs.jsp?pageNumber=<%=pageNumber+1%>"
+               class="btn btn-success mr-1 p-2">다음</a>
+            <%
+                }
+            %>
         </div>
     </div>
 

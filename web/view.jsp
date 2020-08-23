@@ -108,12 +108,11 @@
                     </tr>
                 </tbody>
             </table>
-            <a href="bbs.jsp" class="btn btn-primary">글 목록</a>
             <%
                 if(userID!=null&&userID.equals(bbs.getUserID())){
             %>
-            <a href="update.jsp?bbsID=<%=bbsID%>" class="btn btn-primary">수정</a>
-            <a onclick="return confirm('삭제하시겠습니까?')" href="delete.jsp?bbsID=<%=bbsID%>" class="btn btn-primary">삭제</a>
+            <a href="update.jsp?bbsID=<%=bbsID%>" class="btn btn-secondary mr-1">글 수정</a>
+            <a onclick="return confirm('삭제하시겠습니까?')" href="delete.jsp?bbsID=<%=bbsID%>" class="btn btn-danger mr-1">글 삭제</a>
             <%
                 }
             %>
@@ -166,9 +165,13 @@
                         <td style="width: 15%"><%=list.get(i).getUserID()%></td>
                         <td style="width: 15%"><%=list.get(i).getReplyDate().substring(2,16)%></td>
                         <td style="width: 50%"><%=list.get(i).getReplyContent()%></td>
-                        <td style="width: 20%"><a onclick="return confirm('삭제하시겠습니까?')" href="replydeleteAction.jsp?replyID=<%=list.get(i).getReplyID()%>" class="btn btn-primary">삭제</a> </td>
+                        <%
+                            if(userID!=null){
+                        %>
+                        <td style="width: 20%"><a onclick="return confirm('삭제하시겠습니까?')" href="replydeleteAction.jsp?replyID=<%=list.get(i).getReplyID()%>" class="btn btn-danger">삭제</a> </td>
                     </tr>
                     <%
+                            }
                         }
                     %>
                 </tbody>
@@ -179,5 +182,12 @@
     <%
         }
     %>
+
+    <div class = "container">
+        <div class = "row">
+            <a href="bbs.jsp" class="btn btn-primary">글 목록</a>
+        </div>
+    </div>
+
 </body>
 </html>
