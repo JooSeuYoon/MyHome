@@ -83,36 +83,29 @@
 
     <div class="container">
         <div class="row">
-            <table class="table table-striped" style="text-align: center;border:1px solid #dddddd">
+            <table class="table " >
                 <thead>
                     <tr>
-                        <th colspan="3" style="background-color: #eeeeee; text-align: center">글 보기</th>
+                        <th colspan="3" style="background-color: #eeeeee; text-align: center"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="width: 20%;">글 제목</td>
-                        <td colspan="2"><%=bbs.getBbsTitle()%></td>
+                        <td><h4><%=bbs.getBbsTitle()%></h4></td>
                     </tr>
                     <tr>
-                        <td>작성자</td>
-                        <td colspan="2"><%=bbs.getUserID()%></td>
+                        <td><%=bbs.getUserID()%> | <%=bbs.getBbsDate()%></td>
                     </tr>
                     <tr>
-                        <td>작성일</td>
-                        <td colspan="2"><%=bbs.getBbsDate().substring(0,11)+bbs.getBbsDate().substring(11,13)+"시"+bbs.getBbsDate().substring(14,16)+"분"%></td>
-                    </tr>
-                    <tr>
-                        <td>내용</td>
-                        <td colspan="2" style="min-height: 200px; text-align: left;"><%=bbs.getBbsContent()%></td>
+                        <td style="min-height: 200px; text-align: left; padding-top: 30px;padding-bottom: 100px;"><h5><%=bbs.getBbsContent()%></h5></td>
                     </tr>
                 </tbody>
             </table>
             <%
                 if(userID!=null&&userID.equals(bbs.getUserID())){
             %>
-            <a href="update.jsp?bbsID=<%=bbsID%>" class="btn btn-secondary mr-1">글 수정</a>
-            <a onclick="return confirm('삭제하시겠습니까?')" href="delete.jsp?bbsID=<%=bbsID%>" class="btn btn-danger mr-1">글 삭제</a>
+            <a href="update.jsp?bbsID=<%=bbsID%>" class="btn btn-secondary mr-1 mb-2">글 수정</a>
+            <a onclick="return confirm('삭제하시겠습니까?')" href="delete.jsp?bbsID=<%=bbsID%>" class="btn btn-danger mr-1 mb-2">글 삭제</a>
             <%
                 }
             %>
@@ -125,7 +118,7 @@
 
     <div class="container">
         <div class="row">
-            <table class="table">
+            <table class="table" style="border: 1px solid #dddddd">
                 <tbody>
                 <form method="post" action="replywriteAction.jsp">
                     <tr>
@@ -156,7 +149,7 @@
 
     <div class="container">
         <div class = "row">
-            <table class="table">
+            <table class="table" style="border: 1px solid #dddddd">
                 <tbody>
                     <%
                         for(int i=0;i<list.size();i++){
